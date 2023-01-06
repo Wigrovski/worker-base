@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="/script.js" defer></script>
+    <title>Work Base</title>
+</head>
+<body>
+   <div class="wrapper">
+        <form action="" class="main-form" method="get" id="data">
+            <div class="main-form_name">
+                <label for="name">Ваше имя</label>
+                <input type="text" name='name' id="name" required>
+            </div>
+            <div class="main-form_surname">
+                <label for="surname">Ваша фамилия</label>
+                <input type="text" name='surname' id="surname" required>
+            </div>
+            <div class="main-form_age">
+                <label for="age">Возраст</label>
+                <input type="text" name='age' id="age" required>
+            </div>
+            <div class="main-form_exp">
+                <label for="exp">Опыт (лет)</label>
+                <input type="text" name='exp' id="exp" required>
+            </div>
+        </form>
+        <!-- <select name="" id="">
+            <option value="">Работник</option>
+        </select> -->
+        <button id="send" type="submit" form="data">ОТПРАВИТЬ</button>
+   </div>
+</body>
+</html>
