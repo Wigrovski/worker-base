@@ -26,8 +26,3 @@ class Driver extends Worker {
 
 const wrk = new Worker()
 const drv = new Driver()
-
-drv.lic = 'yes'
-drv.arr = 'Ivan'
-
-console.log(drv.arr);
