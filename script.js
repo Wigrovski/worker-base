@@ -4,6 +4,7 @@ let surname = document.getElementById('surname')
 let age = document.getElementById('age')
 let exp = document.getElementById('exp')
 let worker = document.getElementById('worker')
+let skill = []
 
 const btn = document.getElementById('send')
 
@@ -47,70 +48,99 @@ function createCheckBox(item) {
 
 // Классы сотрудников
 class Worker {
-    constructor(name, surname, age, exp) {
+    constructor(name, surname, age, exp, worker, arr = [] ) {
         this.name = name
         this.surname = surname
         this.age = age
         this.exp = exp
+        this.worker = worker
+        this.arr = arr
     }
+    get firstName() { 
+        return  this.arr
+    }
+    set firstName(val) { 
+        this.arr.push(val)
+    }
+
 }
 class Driver extends Worker {
-    constructor(name, surname, age, exp, lic, auto) {
-        super(name, surname, age, exp)
+    constructor(name, surname, age, exp, worker, lic, auto) {
+        super(name, surname, age, exp, worker)
         this.lic = lic
         this.auto = auto
     }
 }
 class Manager extends Worker {
-    constructor(name, surname, age, exp, social, literacy) {
-        super(name, surname, age, exp)
+    constructor(name, surname, age, exp, worker, social, literacy) {
+        super(name, surname, age, exp, worker)
         this.social = social
         this.literacy = literacy
     }
 }
 class Programmer extends Worker {
-    constructor(name, surname, age, exp, frontend, backend) {
-        super(name, surname, age, exp)
+    constructor(name, surname, age, exp, worker, frontend, backend) {
+        super(name, surname, age, exp, worker)
         this.frontend = frontend
         this.backend = backend
     }
+    get front() {return this.frontend}
+    set front(value) {this.frontend = value}
+    
 }
 // Собираем данные и формируем таблицу
+
+btn.addEventListener('click', () => {
+    dataCol.start()
+    const dev = new Programmer (name, surname, age, exp, worker)
+    dev.front = skill[0]
+    console.log(dev);
+
+    })
+
+
+
 const dataCol = {
     name: '',
     surname: '',
     age: '',
     exp: '',
-    data: [],
+    worker: '',
+    skill: [],
+    start: function() {
+        this.getData()
+        this.getSelect()
+        this.getCheck()
+        console.log(worker)
+        console.log(skill)
+    },
     getData: function() {
         name = document.getElementById('name').value
         surname = document.getElementById('surname').value
-        age = document.getElementById('age')
-        exp = document.getElementById('exp')
+        age = document.getElementById('age').value
+        exp = document.getElementById('exp').value
     },
-    start: function() {
-        this.getData()
+    getSelect: function() {
+        worker = document.getElementById('worker')
+        const option = worker.querySelectorAll('option')
+        console.log(option);
+        for (let key of option) {
+            if (key.selected){
+                worker = key.textContent
+            }            
+        }
+    },
+    getCheck: function() {
+        const prof = document.getElementById('prof')
+        const inputItem = prof.querySelectorAll('input')
+        const labelItem = prof.querySelectorAll('label')
+        for (let key of inputItem) {
+            if (key.checked){
+                skill.push(key.value)
+            }
+        }
     }
-
-
 }
-btn.addEventListener('click', () => {dataCol.start(); console.log(dataCol);})
-
-
-
-
-
-
-
-
-// btn.addEventListener('click', () => {
-//     let name = document.getElementById('name').value
-//     let surname = document.getElementById('surname').value
-//     let age = document.getElementById('age').value
-//     let exp = document.getElementById('exp').value
-
-    
-// })
 
 
 

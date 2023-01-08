@@ -29,7 +29,7 @@ body {
 
 }
 
-.main-form  label {
+.main-form  > label {
     text-align: center;
     align-items: center;
     font-size: 0.9rem;
@@ -38,7 +38,7 @@ body {
 .main-form  input {
     margin-top: 10px;
     border: 1px solid #eeeeee;
-    height: 20px;
+    height: 26px;
     padding: 0 5px;
     outline: 0;
     outline-offset: 0;    
