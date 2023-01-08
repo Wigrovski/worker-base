@@ -11,7 +11,7 @@
 </head>
 <body>
    <div class="wrapper">
-        <form action="" class="main-form" method="get" id="data">
+        <form action="" class="main-form" id="data">
             <div class="main-form_name">
                 <label for="name">Ваше имя</label>
                 <input type="text" name='name' id="name" required>
@@ -29,13 +29,17 @@
                 <input type="text" name='exp' id="exp" required>
             </div>
         </form>
+        <div class="select-wrapper">
+            <select name="" id="worker">
+                <option value="driver"></option>
+                <option value="driver">Водитель</option>
+                <option value="manager">Менеджер</option>
+                <option value="program">Программист</option>
+            </select>
+            <div id="prof"></div>
+        </div>
         
-        <select name="" id="worker">
-            <option value="driver">Водитель</option>
-            <option value="manager">Менеджер</option>
-            <option value="program">Программист</option>
-        </select>
-        <button id="send" type="submit" form="data">ОТПРАВИТЬ</button>
+        <button id="send" type="button" form="data">ОТПРАВИТЬ</button>
    </div>
 </body>
 </html>
